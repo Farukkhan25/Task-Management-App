@@ -1,0 +1,25 @@
+ @import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+
+html {
+  line-height: 2.5;
+}
+
+.AddTask {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    190deg,
+    rgb(134, 123, 205) 0%,
+    rgb(106, 90, 171) 100%
+  );
+  min-height: 50rem;
+}
+
+ .AddTask h1 {
+  display: inline;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #e1ebfd;
+  text-shadow: 0 0 5px #433aa8, 3px -1px 5px #271c6c;
+  font-family: "RocknRoll One", sans-serif;
+}

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import "./Tasks.css";
 import { connect } from "react-redux";
 import { addTasks } from "../../redux/reducer";
 import { motion } from "framer-motion";
 import { GoPlus } from "react-icons/go";
+import { toast } from "react-hot-toast";
 
 const mapStateToProps = (state) => {
   return {
@@ -31,8 +33,9 @@ const Tasks = (props) => {
         id: Math.floor(Math.random() * 1000),
         item: task,
         completed: false,
-      });
-      setTask("");
+      })      
+      toast.success("Task Added successfully !");
+      setTask("");      
     }
   };
   //console.log("props from store", props);
