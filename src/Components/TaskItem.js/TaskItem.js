@@ -37,7 +37,7 @@ const TaskItem = (props) => {
         backgroundColor: "rgba(255,0,0,1)",
       }}
       key={item.id}
-      className="card"
+      className="taskCard"
     >
       <textarea
         ref={inputRef}

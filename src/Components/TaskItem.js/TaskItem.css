@@ -1,4 +1,4 @@
-.card {
+.taskCard {
   display: flex;
   flex-direction: column;
   background: rgb(180, 182, 218);
@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.card textarea {
+.taskCard textarea {
   padding: 0.5rem;
   border-radius: 8px;
   border: none;
@@ -23,17 +23,17 @@
   color: #271c6c;
   height: 70%;
 }
-.card textarea:disabled {
+.taskCard textarea:disabled {
   background-color: transparent;
 }
 
-.card .btns {
+.taskCard .btns {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
 }
 
-.card .btns button {
+.taskCard .btns button {
   border-radius: 20%;
   border: none;
   margin: 0 0.6rem;
@@ -43,12 +43,11 @@
   background-color: transparent;
 }
 
-.card .btns button:focus {
+.taskCard .btns button:focus {
   outline: none;
 }
 
-.completed {
-  
+.completed { 
   background-color: #867bcd;
   border: 2px solid #272727;
   color: #e1ebfd;

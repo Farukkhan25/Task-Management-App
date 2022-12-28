@@ -7,6 +7,7 @@ import Register from "../../Pages/Register/Register";
 import AddTask from "../../Pages/Task/AddTask/AddTask";
 import CompletedTasks from "../../Pages/Task/CompletedTasks/CompletedTasks";
 import MyTask from "../../Pages/Task/MyTask/MyTask";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -28,15 +29,27 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/addTask",
-        element: <AddTask />,
+        element: (
+          <PrivateRoute>
+            <AddTask />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myTask",
-        element: <MyTask />,
+        element: (
+          <PrivateRoute>
+            <MyTask />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/completedTasks",
-        element: <CompletedTasks />,
+        element: (
+          <PrivateRoute>
+            <CompletedTasks />
+          </PrivateRoute>
+        ),
       },
     ],
   },
