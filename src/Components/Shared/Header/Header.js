@@ -1,27 +1,49 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../../assets/logo/logo.png";
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-
+    const { user, logOut } = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
 
      const menuItems = (
        <>
-         <li className="font-semibold list-none">
-           <Link
-             to="/login"
-             className="font-bold list-none my-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300  dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-700"
-           >
-             Login
-           </Link>
-           <Link
-             to="/register"
-             className="font-bold list-none ml-2 my-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300  dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-700"
-           >
-             Register
-           </Link>
-         </li>
+         {user?.email ? (
+           <>
+             <li className="font-semibold list-none my-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700 text-green-700">
+               <Link to="/reviews">My Reviews</Link>
+             </li>
+             <li className="font-semibold list-none my-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700 text-green-700">
+               <Link to="/addService">Add Service</Link>
+             </li>
+             <button
+               className="font-semibold list-none my-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+               onClick={handleLogOut}
+             >
+               Log Out
+             </button>
+           </>
+         ) : (
+           <li className="font-semibold list-none">
+             <Link
+               to="/login"
+               className="font-bold list-none m-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300  dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-700"
+             >
+               Login
+             </Link>
+             <Link
+               to="/register"
+               className="font-bold list-none ml-2 m-2 px-2 py-2 lg:my-0 lg:px-4  rounded-lg  hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300  dark:hover:bg-blue-700 dark:hover:text-white dark:focus:ring-blue-700"
+             >
+               Register
+             </Link>
+           </li>
+         )}
        </>
      );
     
@@ -136,7 +158,7 @@ const Header = () => {
                     </div>
                   </div>
                   <nav className="flex justify-center">
-                    <ul className="space-y-4 px-8 py-4 bg-purple-200 w-72">
+                    <ul className="text-center space-y-4 px-8 py-4 bg-purple-200 w-72">
                       <li>
                         <Link
                           to="/"
@@ -177,7 +199,7 @@ const Header = () => {
                           Completed Tasks
                         </Link>
                       </li>
-                      <li className="text-sky-600 bg-purple-400 inline-block">
+                      <li className="text-sky-600 inline-block">
                         {menuItems}
                       </li>
                     </ul>

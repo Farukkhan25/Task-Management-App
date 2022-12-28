@@ -5,7 +5,7 @@ import Header from '../Components/Shared/Header/Header';
 
 const Main = () => {
     return (
-      <div>
+      <div className="h-screen">
         <Header></Header>
         <Outlet></Outlet>
         <Footer></Footer>
