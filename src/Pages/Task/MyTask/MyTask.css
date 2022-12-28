@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+
+html {
+  line-height: 2.5;
+}
+
+.displaytasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    190deg,
+    rgb(134, 123, 205) 0%,
+    rgb(106, 90, 171) 100%
+  );
+  min-height: 50rem;
+}
+
+ .displaytasks h1 {
+  display: inline;
+  text-align: center;
+  margin: 2rem;
+  color: #e1ebfd;
+  text-shadow: 0 0 5px #433aa8, 3px -1px 5px #271c6c;
+  font-family: "RocknRoll One", sans-serif;
+}
+ .displaytasks h3 {
+  margin-top: 2px;
+  color: #f7ecec;
+  text-shadow: 0 0 5px #433aa8, 3px -1px 5px #271c6c;
+  font-family: "RocknRoll One", sans-serif;
+}
+
+.displaytasks .buttons {
+  margin-bottom: 2rem;
+}
+
+.displaytasks .buttons button {
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.displaytasks .buttons button:focus {
+  outline: none;
+}
+
+.displaytasks .buttons button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.displaytasks ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  /* align-self: flex-start; */
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
