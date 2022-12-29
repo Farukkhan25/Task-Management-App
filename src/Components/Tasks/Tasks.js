@@ -41,6 +41,7 @@ const Tasks = (props) => {
   //console.log("props from store", props);
   return (
     <div className="addTasks">
+      
       <input
         type="text"
         onChange={(e) => handleChange(e)}

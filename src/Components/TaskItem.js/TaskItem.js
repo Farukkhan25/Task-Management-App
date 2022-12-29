@@ -6,7 +6,7 @@ import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const TaskItem = (props) => {
-  const { item, updateTask, removeTask, completeTask, notCompleteTasks } = props;
+  const { item,  updateTask, removeTask, completeTask } = props;
 
   const inputRef = useRef(true);
 
@@ -39,6 +39,7 @@ const TaskItem = (props) => {
       key={item.id}
       className="taskCard"
     >
+    
       <textarea
         ref={inputRef}
         disabled={inputRef}
