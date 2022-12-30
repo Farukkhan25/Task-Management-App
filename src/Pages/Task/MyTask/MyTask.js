@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./MyTask.css";
 import TaskItem from '../../../Components/TaskItem.js/TaskItem';
 import { addTasks, completeTasks, removeTasks, updateTasks } from '../../../redux/reducer';
 import { connect } from "react-redux";
+import { themeContext } from "../../../contexts/Context";
 
 const mapStateToProps = (state) => {
   return {
@@ -20,9 +21,18 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 const MyTask = (props) => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
       const [sort, setSort] = useState("active");
     return (
-      <div className="displaytasks">
+      <div
+        className="displaytasks"
+        style={
+          darkMode
+            ? { backgroundColor: "#1e384e" }
+            : { backgroundColor: "#7465B7" }
+        }
+      >
         <motion.h1
           initial={{ y: -200 }}
           animate={{ y: 0 }}
@@ -52,7 +62,6 @@ const MyTask = (props) => {
             ) : (
               <h3>No Active Task Available. Please add new task.</h3>
             )}
-           
           </AnimatePresence>
         </ul>
       </div>

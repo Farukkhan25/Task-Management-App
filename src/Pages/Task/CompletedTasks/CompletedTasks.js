@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./CompletedTasks.css";
 import TaskItem from "../../../Components/TaskItem.js/TaskItem";
 import {
@@ -9,6 +9,7 @@ import {
   updateTasks,
 } from "../../../redux/reducer";
 import { connect } from "react-redux";
+import { themeContext } from "../../../contexts/Context";
 
 const mapStateToProps = (state) => {
   return {
@@ -25,9 +26,18 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 const CompletedTasks = (props) => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   const [sort, setSort] = useState("completed");
   return (
-    <div className="displaytasks">
+    <div
+      className="displaytasks"
+      style={
+        darkMode
+          ? { backgroundColor: "#1e384e" }
+          : { backgroundColor: "#7465B7" }
+      }
+    >
       <motion.h1
         initial={{ y: -200 }}
         animate={{ y: 0 }}
@@ -43,15 +53,15 @@ const CompletedTasks = (props) => {
           {props.tasks.length > 0 && sort === "completed" ? (
             props.tasks.map((item) => {
               return (
-                 item.completed === true && (
-                <TaskItem
-                  key={item.id}
-                  item={item}
-                  removeTask={props.removeTask}
-                  updateTask={props.updateTask}
-                  completeTask={props.completeTask}
+                item.completed === true && (
+                  <TaskItem
+                    key={item.id}
+                    item={item}
+                    removeTask={props.removeTask}
+                    updateTask={props.updateTask}
+                    completeTask={props.completeTask}
                   />
-                 )
+                )
               );
             })
           ) : (

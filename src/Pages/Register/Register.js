@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { themeContext } from '../../contexts/Context';
 
 const Register = () => {
     const {
@@ -31,10 +32,19 @@ const Register = () => {
         });
     };
 
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
     // useTitle("Register");
 
     return (
-      <div className="hero w-full p-2 md:p-24 bg-[#433aa8]">
+      <div
+        className="hero w-full p-2 md:p-24 "
+        style={
+          darkMode
+            ? { backgroundColor: "#023d7c" }
+            : { backgroundColor: "#433aa8" }
+        }
+      >
         <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
           <div className="text-center lg:text-left mt-6">
             <img
@@ -45,13 +55,28 @@ const Register = () => {
             />
           </div>
           <div className="relative flex flex-col justify-center items-center overflow-hidden">
-            <div className="w-full px-6 py-12 lg:py-24 m-auto bg-white rounded-md shadow-xl lg:max-w-lg">
-              <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
+            <div
+              className="w-full px-6 py-12 lg:py-16 m-auto bg-white rounded-md shadow-xl lg:max-w-lg"
+              style={
+                darkMode
+                  ? { backgroundColor: "#032a51" }
+                  : { backgroundColor: "white" }
+              }
+            >
+              <h1
+                className="text-3xl font-semibold text-center text-purple-700 uppercase pb-2"
+                style={darkMode ? { color: "#FFFFFF" } : { color: "#9333EA" }}
+              >
                 Sign Up
               </h1>
               <form onSubmit={handleSubmit(handleRegister)} className="mt-6">
-                <div className="mb-2">
-                  <label className="block text-sm font-semibold text-gray-800">
+                <div className="mb-4">
+                  <label
+                    className="block text-sm font-semibold text-gray-800"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
+                  >
                     {" "}
                     <span className="label-text">Name</span>
                   </label>
@@ -62,13 +87,21 @@ const Register = () => {
                     })}
                     placeholder="your name"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
                   />
                   {errors.name && (
                     <p className="text-red-500">{errors.name.message}</p>
                   )}
                 </div>
-                <div className="mb-2">
-                  <label className="block text-sm font-semibold text-gray-800">
+                <div className="mb-4">
+                  <label
+                    className="block text-sm font-semibold text-gray-800"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
+                  >
                     {" "}
                     <span className="label-text">Email</span>
                   </label>
@@ -79,13 +112,21 @@ const Register = () => {
                     })}
                     placeholder="email"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
                   />
                   {errors.email && (
                     <p className="text-red-500">{errors.email.message}</p>
                   )}
                 </div>
-                <div className="mb-2">
-                  <label className="block text-sm font-semibold text-gray-800">
+                <div className="mb-4">
+                  <label
+                    className="block text-sm font-semibold text-gray-800"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
+                  >
                     {" "}
                     <span className="label-text">Password</span>
                   </label>
@@ -105,6 +146,9 @@ const Register = () => {
                     })}
                     placeholder="password"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                    style={
+                      darkMode ? { color: "#FFFFFF" } : { color: "#1F2937" }
+                    }
                   />
                   {errors.password && (
                     <p className="text-red-500">{errors.password.message}</p>

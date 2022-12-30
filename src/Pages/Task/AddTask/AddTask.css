@@ -7,11 +7,11 @@ html {
 .AddTask {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
+  /* background: linear-gradient(
     190deg,
     rgb(134, 123, 205) 0%,
     rgb(106, 90, 171) 100%
-  );
+  ); */
   min-height: 50rem;
 }
 

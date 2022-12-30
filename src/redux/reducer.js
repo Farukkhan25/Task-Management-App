@@ -22,6 +22,7 @@ const addTaskReducer = createSlice({
           return {
             ...task,
             item: action.payload.item,
+            // photo: action.payload.photo,
           };
         }
         return task;

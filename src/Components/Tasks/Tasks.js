@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Tasks = (props) => {
+  
   const [task, setTask] = useState("");
 
   const handleChange = (e) => {
@@ -26,6 +27,7 @@ const Tasks = (props) => {
   };
 
   const add = () => {
+
     if (task === "") {
       alert("Input is Empty");
     } else {
@@ -33,9 +35,9 @@ const Tasks = (props) => {
         id: Math.floor(Math.random() * 1000),
         item: task,
         completed: false,
-      })      
+      });
       toast.success("Task Added successfully !");
-      setTask("");      
+      setTask("");
     }
   };
   //console.log("props from store", props);

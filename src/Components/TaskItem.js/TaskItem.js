@@ -6,7 +6,7 @@ import { IoCheckmarkDoneSharp, IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const TaskItem = (props) => {
-  const { item,  updateTask, removeTask, completeTask } = props;
+  const { item, updateTask, removeTask, completeTask } = props;
 
   const inputRef = useRef(true);
 
@@ -39,13 +39,14 @@ const TaskItem = (props) => {
       key={item.id}
       className="taskCard"
     >
-    
+     
       <textarea
         ref={inputRef}
         disabled={inputRef}
         defaultValue={item.item}
         onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
       />
+      
       <div className="btns">
         <motion.button
           whileHover={{ scale: 1.4 }}

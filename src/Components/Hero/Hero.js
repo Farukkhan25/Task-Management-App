@@ -4,7 +4,7 @@ import hero_img from "../../assets/hero-img.png";
 
 const Hero = ({ theme }) => {
   return (
-    <section className="dark:bg-gray-800 dark:text-gray-100 ">
+    <section className="dark:bg-gray-800 dark:text-gray-100 lg:px-4">
       <div className="container flex flex-col justify-center p-10 mx-auto sm:py-12 lg:py-16 lg:flex-row lg:justify-between">
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-5xl font-bold leading-none sm:text-6xl">

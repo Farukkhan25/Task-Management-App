@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Tasks from "../../../Components/Tasks/Tasks";
 import { motion } from "framer-motion";
 import "./AddTask.css";
+import { themeContext } from "../../../contexts/Context";
 
 const AddTask = () => {
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   return (
-    <div className="AddTask py-8">
+    <div
+      className="AddTask py-8"
+      style={
+        darkMode
+          ? { backgroundColor: "#1e384e" }
+          : { backgroundColor: "#7465B7" }
+      }
+    >
       <motion.h1
         initial={{ y: -200 }}
         animate={{ y: 0 }}
